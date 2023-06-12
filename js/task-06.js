@@ -1,14 +1,14 @@
-const inputElements = document.querySelector("#validation-input");
-inputElements.addEventListener("blur", onBlurBordColor);
-function onBlurBordColor(event) {
-    const inputDataLength = Number(inputElements.dataset.lenght);
-    const inputValueLength = Number(inputElements.value.trim().lenght);
+const input = document.querySelector('#validation-input');
 
-    if (inputDataLength === inputValueLength) {
-        inputElements.classList.add("valid");
-        inputElements.classList.remove("invalid");
+input.addEventListener('blur', () => {
+    const inputValue = input.value.trim();
+    const expectedLength = parseInt(input.dataset.length);
+
+    if (inputValue.length === expectedLength) {
+        input.classList.remove('invalid');
+        input.classList.add('valid');
     } else {
-        inputElements.classList.remove("valid");
-        inputElements.classList.add("invalid");
+        input.classList.remove('valid');
+        input.classList.add('invalid');
     }
-}
+});
